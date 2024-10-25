@@ -1,4 +1,14 @@
 #include <stdio.h>
+#include <unistd.h>
+
+/**
+ * write_char - writes a character to standard output
+ * @c: the character to write
+ */
+void write_char(char c)
+{
+	write(1, &c, 1);
+}
 
 /**
  * print_sign - prints the sign of a number
@@ -12,17 +22,17 @@ int print_sign(int n)
 {
 	if (n > 0)
 	{
-		putchar('+');
+		write_char('+');
 		return (1);
 	}
 	else if (n == 0)
 	{
-		putchar('0');
+		write_char('0');
 		return (0);
 	}
 	else
 	{
-		putchar('-');
+		write_char('-');
 		return (-1);
 	}
 }
