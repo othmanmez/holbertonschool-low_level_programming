@@ -6,7 +6,7 @@
  *
  * Return: the value of the last digit
  */
-int print_last_digit(int n)
+
 {
 	int last_digit;
 
@@ -22,4 +22,15 @@ int print_last_digit(int n)
 	putchar(last_digit + '0'); /* Print the last digit as a character */
 
 	return (last_digit); /* Return the last digit */
+}
+#include <unistd.h>
+#include <stdio.h>
+
+/**
+ * write_char - writes a character to standard output
+ * @c: the character to write
+ */
+void write_char(char c)
+{
+    write(1, &c, 1);
 }
