@@ -6,31 +6,18 @@
  *
  * Return: the value of the last digit
  */
-
+int print_last_digit(int n)
 {
 	int last_digit;
 
-	/* Get the last digit using the modulus operator */
 	last_digit = n % 10;
 
-	/* Handle negative numbers */
 	if (last_digit < 0)
 	{
-		last_digit = -last_digit; /* Make last_digit positive */
+		last_digit = -last_digit;
 	}
 
-	putchar(last_digit + '0'); /* Print the last digit as a character */
+	putchar(last_digit + '0');
 
-	return (last_digit); /* Return the last digit */
-}
-#include <unistd.h>
-#include <stdio.h>
-
-/**
- * write_char - writes a character to standard output
- * @c: the character to write
- */
-void write_char(char c)
-{
-    write(1, &c, 1);
+	return (last_digit);
 }
