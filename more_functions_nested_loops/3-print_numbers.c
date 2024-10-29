@@ -1,17 +1,12 @@
-#include <stdio.h>
-/* Prototype de _putchar */
-int _putchar(char c);
-
+#include "main.h"
 /**
- * print_numbers - affiche les nombres de 0 à 9 suivis d'un saut de ligne
+ * print_numbers - Prints the numbers from 0 to 9, followed by a new line.
  */
 void print_numbers(void)
 {
-	int i;  /* Déclaration de la variable avant la boucle*/
+	int num;
 
-	for (i = 0; i < 10; i++)
-	{
-		_putchar(i + '0');  /* Convertit l'entier en caractère et l'affiche*/
-	}
-	return (0);
+	for (num = '0'; num <= '9'; num++)
+		_putchar(num);
+	_putchar('\n');
 }
