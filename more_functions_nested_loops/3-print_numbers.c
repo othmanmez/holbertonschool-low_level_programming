@@ -13,5 +13,5 @@ void print_numbers(void)
 	{
 		_putchar(i + '0');  /* Convertit l'entier en caractère et l'affiche*/
 	}
-	_putchar('\n');  /*Affiche un saut de ligne*/
+	return (0);
 }
