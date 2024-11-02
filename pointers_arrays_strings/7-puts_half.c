@@ -1,31 +1,28 @@
 #include "main.h"
 /**
- * puts_half - Prints the second half of a string, followed by a new line.
- * @str: Pointer to the string to be printed.
+ * leet - Encode une chaîne de caractères en 1337 (leet).
+ * @str: La chaîne de caractères �|  encoder.
+ *
+ * Return: Un pointeur vers la chaîne encodée.
  */
-void puts_half(char *str)
+char *leet(char *str)
 {
-	int len = 0;
-	int start;
-	/* Trouver la longueur de la chaîne */
-	while (str[len] != '\0')
+	int m = 0, j;
+
+	char lettres[] = "aAeEoOtTlL";
+	char nombres[] = "4433007711";
+
+	while (str[m] != '\0')
 	{
-		len++;
+		for (j = 0; lettres[j] != '\0'; j++)
+		{
+			if (str[m] == lettres[j])
+			{
+				str[m] = nombres[j];
+				break;
+			}
+		}
+		m++;
 	}
-	/* Déterminer le point de départ pour imprimer la deuxième moitié */
-	if (len % 2 == 0)
-	{
-		start = len / 2;  /* Longueur paire */
-	}
-	else
-	{
-		start = (len - 1) / 2;  /* Longueur impaire */
-		start++;  /* Démarrer après le milieu */
-	}
-	/* Imprimer la seconde moitié de la chaîne */
-	for (; start < len; start++)
-	{
-		_putchar(str[start]);
-	}
-	_putchar('\n');  /* Nouvelle ligne à la fin */
+	return (str);
 }
