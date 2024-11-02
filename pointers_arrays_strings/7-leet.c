@@ -1,31 +1,27 @@
-#include <stdio.h>
 #include "main.h"
 /**
- * leet - Encode une chaîne en "leet speak".
- * @str: Pointeur vers la chaîne à encoder.
- * 
- * Return: Pointeur vers la chaîne encodée.
+ * leet - Encode une chaîne de caractères en 1337 (leet).
+ * @str: La chaîne de caractères �|  encoder.
+ *
+ * Return: Un pointeur vers la chaîne encodée.
  */
 char *leet(char *str)
 {
-	char leet_chars[] = "43071"; /* Caractères leet correspondant aux lettres */
-	char normal_chars[] = "aeotlAEOTL"; /* Lettres normales à remplacer */
-	int i, j;
+	int m = 0, j;
+	char lettres[] = "aAeEoOtTlL";
+	char nombres[] = "4433007711";
 
-	/* Parcourt chaque caractère de la chaîne */
-	for (i = 0; str[i] != '\0'; i++)
+	while (str[m] != '\0')
 	{
-		/* Compare le caractère courant avec les lettres à remplacer */
-		for (j = 0; normal_chars[j] != '\0'; j++)
+		for (j = 0; lettres[j] != '\0'; j++)
 		{
-			if (str[i] == normal_chars[j])
+			if (str[m] == lettres[j])
 			{
-				str[i] = leet_chars[j]; /* Remplace par le caractère leet */
-				break; /* Sort de la boucle une fois remplacé */
+				str[m] = nombres[j];
+				break;
 			}
 		}
+		m++;
 	}
-
-	return str; /* Retourne le pointeur vers la chaîne encodée */
+	return (str);
 }
-
