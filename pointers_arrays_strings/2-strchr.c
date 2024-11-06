@@ -1,40 +1,29 @@
 #include "main.h"
 #include <stddef.h>  /* Inclure pour NULL */
-
 /**
- * _strchr - Localiser un caractère dans une chaîne
- * @s: Pointeur vers la chaîne à parcourir
- * @c: Caractère à localiser dans la chaîne
+ * _strchr - Locate a character in a string
+ * @s: Pointer to the string to search
+ * @c: Character to locate in the string
  *
- * Cette fonction retourne un pointeur vers la première
- * occurrence du caractère
- * `c` dans la chaîne `s`. Si le caractère n'est pas trouvé,
- * elle retourne NULL.
+ * This function returns a pointer to the first occurrence of the character
+ * `c` in the string `s`. If the character is not found, it returns NULL.
  *
- * Retour : Pointeur vers la première occurrence de `c` dans `s`,
- * ou NULL si non trouvé.
+ * Return: Pointer to the first occurrence of `c` in `s`, or NULL if not found
  */
 char *_strchr(char *s, char c)
 {
-	if (s == NULL)  /* Vérifie si la chaîne est NULL */
+	while (*s)  /* Continue until the null terminator is reached */
 	{
-		return (NULL);  /* Retourne NULL si la chaîne est NULL */
-	}
-
-	while (*s)  /* Parcourt la chaîne jusqu'au caractère nul ('\0') */
-	{
-		if (*s == c)  /* Vérifie si le caractère actuel correspond à `c` */
+		if (*s == c)  /* Check if the current character matches `c` */
 		{
-			return (s);  /* Retourne un pointeur vers le caractère trouvé */
+			return (s);  /* Return a pointer to the current character */
 		}
-		s++;  /* Passe au caractère suivant */
+		s++;  /* Move to the next character in the string */
 	}
-
-	/* Vérifie si le caractère recherché est le caractère nul '\0' */
-	if (*s == c)  /* Si `c` est '\0' */
+	/* Check for the null terminator */
+	if (*s == c)  /* If we reach the null terminator and it matches `c` */
 	{
-		return (s);  /* Retourne un pointeur vers le caractère nul */
+		return (s);  /* Return a pointer to the null terminator if `c` is '\0' */
 	}
-
-	return (NULL);
+	return (NULL);  /* Return NULL if `c` was not found in the string */
 }
