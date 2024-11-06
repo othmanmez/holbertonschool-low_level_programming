@@ -1,25 +1,21 @@
+#include "main.h"
 #include <stdio.h>
+
 /**
- * print_diagsums - Prints the sums of the two diagonals of a square matrix.
- * @a: Pointer to the first element of the matrix.
- * @size: Size of the matrix (number of rows and columns).
- *
- * Return: Nothing.
+ * print_chessboard - Affiche l'échiquier.
+ * @a: Le tableau 2D représentant l'échiquier (8x8).
  */
-void print_diagsums(int *a, int size)
+void print_chessboard(char (*a)[8])
 {
-	int i;
-	int sum1 = 0, sum2 = 0;
-	/* Calcul de la somme de la première diagonale (haut gauche -> bas droit) */
-	for (i = 0; i < size; i++)
-	{
-		sum1 += a[i * size + i];
-	}
-	/* Calcul de la somme de la deuxième diagonale (haut droit -> bas gauche) */
-	for (i = 0; i < size; i++)
-	{
-		sum2 += a[i * size + (size - 1 - i)];
-	}
-	/* Affichage des sommes des diagonales */
-	printf("%d, %d\n", sum1, sum2);
+    int i, j;
+
+    for (i = 0; i < 8; i++)  /* Parcours des lignes */
+    {
+        for (j = 0; j < 8; j++)  /* Parcours des colonnes */
+        {
+            putchar(a[i][j]);  /* Affiche chaque caractère */
+        }
+        putchar('\n');  /* Affiche un saut de ligne après chaque ligne */
+    }
 }
+
