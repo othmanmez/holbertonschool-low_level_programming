@@ -11,6 +11,7 @@
 char *_strpbrk(char *s, char *accept)
 {
 	int i, j; /* Counters for the loops */
+
 	for (i = 0; s[i] != '\0'; i++) /* Traverse through each character of s */
 	{
 		for (j = 0; accept[j] != '\0'; j++) /* Check against each character */
