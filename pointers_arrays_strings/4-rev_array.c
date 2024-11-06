@@ -1,26 +1,28 @@
-#include <stdio.h>
 #include "main.h"
+
 /**
- * reverse_array - Inverse le contenu d'un tableau d'entiers.
- * @a: Pointeur vers le tableau d'entiers.
- * @n: Le nombre d'éléments dans le tableau.
+ * _strpbrk - Searches a string for any of a set of bytes.
+ * @s: The string to be searched.
+ * @accept: The set of bytes to be searched for.
+ *
+ * Return: If a set is matched - a pointer to the matched byte.
+ *         If no set is matched - NULL.
  */
-void reverse_array(int *a, int n)
+char *_strpbrk(char *s, char *accept)
 {
-	int temp;
-	int start = 0;
-	int end = n - 1;
+	int index;
 
-	/* Échanger les éléments du début à la fin jusqu'à atteindre le milieu*/
-	while (start < end)
+	while (*s)
 	{
-		/* Échanger les éléments */
-		temp = a[start];
-		a[start] = a[end];
-		a[end] = temp;
+		for (index = 0; accept[index]; index++)
+		{
+			if (*s == accept[index])
+				return (s);
+		}
 
-		/* Se déplacer vers le milieu */
-		start++;
-		end--;
+		s++;
 	}
+
+	return ('\0');
 }
+
