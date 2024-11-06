@@ -1,29 +1,33 @@
 #include "main.h"
 #include <stddef.h>  /* Inclure pour NULL */
+
 /**
- * _strchr - Locate a character in a string
- * @s: Pointer to the string to search
- * @c: Character to locate in the string
+ * _strchr - Localiser un caractère dans une chaîne.
+ * @s: Pointeur vers la chaîne à parcourir.
+ * @c: Le caractère à localiser dans la chaîne.
  *
- * This function returns a pointer to the first occurrence of the character
- * `c` in the string `s`. If the character is not found, it returns NULL.
+ * Cette fonction retourne un pointeur vers la première occurrence du caractère
+ * `c` dans la chaîne `s`. Si le caractère n'est pas trouvé, elle retourne NULL.
  *
- * Return: Pointer to the first occurrence of `c` in `s`, or NULL if not found
+ * Retour: Un pointeur vers la première occurrence de `c` dans `s`, ou NULL si non trouvé.
  */
 char *_strchr(char *s, char c)
 {
-	while (*s)  /* Continue until the null terminator is reached */
-	{
-		if (*s == c)  /* Check if the current character matches `c` */
-		{
-			return (s);  /* Return a pointer to the current character */
-		}
-		s++;  /* Move to the next character in the string */
-	}
-	/* Check for the null terminator */
-	if (*s == c)  /* If we reach the null terminator and it matches `c` */
-	{
-		return (s);  /* Return a pointer to the null terminator if `c` is '\0' */
-	}
-	return (NULL);  /* Return NULL if `c` was not found in the string */
+    while (*s)  /* Tant que le caractère actuel n'est pas le caractère nul */
+    {
+        if (*s == c)  /* Si le caractère actuel correspond à `c` */
+        {
+            return (s);  /* Retourner un pointeur vers le caractère trouvé */
+        }
+        s++;  /* Passer au caractère suivant dans la chaîne */
+    }
+
+    /* Vérifier si le caractère recherché est le caractère nul '\0' */
+    if (*s == c)  /* Si on arrive au caractère nul et qu'il correspond à `c` */
+    {
+        return (s);  /* Retourner un pointeur vers le caractère nul si `c` est '\0' */
+    }
+
+    return (NULL);  /* Retourner NULL si `c` n'a pas été trouvé dans la chaîne */
 }
+

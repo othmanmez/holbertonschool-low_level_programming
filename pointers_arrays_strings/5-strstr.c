@@ -1,32 +1,26 @@
-#include <stddef.h> /* Pour NULL */
+include "main.h"
+#include <stddef.h>  /* Inclure pour NULL */
 /**
- * _strstr - Locates the first occurrence of the substring `needle`
- *           in the string `haystack`.
- * @haystack: The main string to search within.
- * @needle: The substring to locate within `haystack`.
+ * _strpbrk - Searches a string for any of a set of bytes.
+ * @s: The string to search.
+ * @accept: The string containing the bytes to match.
  *
- * Return: A pointer to the beginning of the located substring,
- *         or NULL if the substring is not found.
+ * Return: A pointer to the byte in s that matches one of the bytes in accept,
+ * or NULL if no such byte is found.
  */
-char *_strstr(char *haystack, char *needle)
+char *_strpbrk(char *s, char *accept)
 {
-	int i, j;
-	/* Si needle est une chaîne vide, retourne haystack */
-	if (*needle == '\0')
-		return (haystack);
-	/* Parcourt chaque caractère de haystack */
-	for (i = 0; haystack[i] != '\0'; i++)
-	{
-		/* Vérifie si needle correspond à partir de cette position */
-		for (j = 0; needle[j] != '\0'; j++)
-		{
-			/* Si les caractères ne correspondent pas, arrêt de la vérification */
-			if (haystack[i + j] != needle[j])
-				break;
-		}
-		/* Si nous avons atteint la fin de needle, on a trouvé une correspondance */
-		if (needle[j] == '\0')
-			return (haystack + i); /* Retourne le pointeur vers le débu */
-	}
-	return (NULL); /* Retourne NULL si needle n'est pas trouvé dans haystack */
+        int i, j; /* Counters for the loops */
+
+        for (i = 0; s[i] != '\0'; i++) /* Traverse through each character of s */
+        {
+                for (j = 0; accept[j] != '\0'; j++) /* Check against each character */
+                {
+                        if (s[i] == accept[j]) /* Match found */
+                        {
+                                return (s + i); /* Return pointer to matching byte in s */
+                        }
+                }
+        }
+        return (NULL); /* Return NULL if no match is found */
 }
