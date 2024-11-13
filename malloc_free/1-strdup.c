@@ -1,13 +1,12 @@
 #include <stdlib.h>
 
 /**
- * _strdup - Retourne un pointeur vers un nouvel espace mémoire qui contient
- *           une copie de la chaîne de caractères donnée en paramètre.
+ * _strdup - Retourne un pointeur vers un nouvel espace mémoire
  * @str: La chaîne à dupliquer.
  *
- * Return: Un pointeur vers la nouvelle chaîne (duplication de str) si réussi,
- *         ou NULL si str est NULL ou si l'allocation échoue.
+ * Return: Un pointeur vers la nouvelle chaîne
  */
+
 char *_strdup(char *str)
 {
 	char *dup_str;
@@ -25,7 +24,7 @@ char *_strdup(char *str)
 		/* Compter les caractères jusqu'au caractère null '\0' */
 	}
 
-	/* Allouer de la mémoire pour la nouvelle chaîne (y compris le caractère null) */
+	/* Allouer de la mémoire pour la nouvelle chaîne*/
 	dup_str = (char *)malloc((len + 1) * sizeof(char));
 
 	/* Si l'allocation échoue, retourner NULL */

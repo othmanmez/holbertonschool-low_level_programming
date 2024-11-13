@@ -6,9 +6,8 @@
  * @taille: La taille du tableau à créer.
  * @c: Le caractère utilisé pour initialiser chaque élément du tableau.
  *
- * Retourne: Un pointeur vers le tableau nouvellement créé,
- * ou NULL si la taille est 0
- *          ou si l'allocation échoue.
+ * Return: Un pointeur vers le tableau nouvellement créé,
+ * ou NULL si la taille est '0'  ou si l'allocation échoue.
  */
 char *create_array(unsigned int taille, char c)
 {
