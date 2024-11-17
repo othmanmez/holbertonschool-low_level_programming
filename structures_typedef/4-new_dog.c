@@ -11,6 +11,7 @@
 int _strlen(char *s)
 {
 	int count = 0;
+
 	if (*s != '\0')
 
 	{
@@ -30,6 +31,7 @@ int _strlen(char *s)
 char *_strcpy(char *dest, char *src)
 {
 	int i;
+
 	i = 0;
 
 	while (*(src + i) != '\0')
