@@ -1,23 +1,40 @@
+#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include "lists.h"
+
 /**
- * print_list - Affiche tous les éléments d'une liste_t.
- * @h: Pointeur vers la tête de la liste.
+ * main - check the code
  *
- * Return: Le nombre de nœuds dans la liste.
+ * Return: Always 0.
  */
-size_t print_list(const list_t *h)
+int main(void)
 {
-	size_t count = 0;  /*Compteur pour le nombre de nœuds*/
-	/* Parcours de la liste */
-	while (h != NULL)
+	list_t *head;
+	list_t *new;
+	list_t hello = {"World", 5, NULL};
+	size_t n;
+
+	head = &hello;
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
 	{
-		if (h->str == NULL)  /* Si la chaîne est NULL, on affiche (nil)*/
-			printf("[0] (nil)\n");
-		else  /* Sinon, on affiche la longueur et la chaîne*/
-			printf("[%u] %s\n", h->len, h->str);
-		h = h->next;  /*Avance au nœud suivant*/
-		count++;      /* Incrémente le compteur de nœuds*/
+		printf("Error\n");
+		return (1);
 	}
-	return (count);
+	new->str = strdup("Hello");
+	new->len = 5;
+	new->next = head;
+	head = new;
+	n = print_list(head);
+	printf("-> %lu elements\n", n);
+
+	printf("\n");
+	free(new->str);
+	new->str = NULL;
+	n = print_list(head);
+	printf("-> %lu elements\n", n);
+
+	free(new);
+	return (0);
 }
