@@ -9,13 +9,14 @@
  * if failed
  */
 
-/*
+/**
    1. Allocate memory for a new node.
    2. If the allocation fails, return NULL.
    3. Copy the string into a new buffer.
    4. If the string copy fails, free the new node and return NULL.
    5. Compute the length of the string.
-   6. Set the new node’s next pointer to point to the current head of the list.
+   6. Set the new node’s next pointer to point
+   6.2 to the current head of the list.
    7. Set the head of the list to point to the new node.
    8. Return a pointer to the new node.
    */
