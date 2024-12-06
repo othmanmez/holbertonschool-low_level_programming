@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * sum_dlistint - Calcule la somme de tous les éléments d'une liste doublement chaînée.
+ * sum_dlistint -Calcule la somme de tous les éléments liste doublement chné
  * @head: Pointeur vers le début de la liste.
  *
  * Return: La somme de toutes les données de la liste (n).
