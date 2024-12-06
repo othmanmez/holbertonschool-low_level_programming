@@ -27,3 +27,16 @@ unsigned int binary_to_uint(const char *b)
 
 	return (result);
 }
+
+/* Test the function */
+int main(void)
+{
+	const char *binary_str = "1101";
+	unsigned int result;
+
+	result = binary_to_uint(binary_str);
+	printf("The converted number is: %u\n", result); /* Expected output: 13 */
+
+	return (0);
+}
+
