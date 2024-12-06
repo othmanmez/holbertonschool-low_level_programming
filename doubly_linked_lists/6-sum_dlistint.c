@@ -1,24 +1,22 @@
-#include <stdio.h>
-#include "lists.h"  /* Assuming this header defines dlistint_t */
+#include "lists.h"
 
 /**
- * sum_dlistint - Sums all the integers in a doubly linked list.
- * @h: Pointer to the head of the doubly linked list.
+ * sum_dlistint - Calcule la somme de tous les éléments d'une liste doublement chaînée.
+ * @head: Pointeur vers le début de la liste.
  *
- * Return: The sum of all the data (n) in the list.
- *         If the list is empty, return 0.
+ * Return: La somme de toutes les données de la liste (n).
+ *         Si la liste est vide, retourne 0.
  */
-int sum_dlistint(const dlistint_t *h)
+int sum_dlistint(dlistint_t *head)
 {
-	int sum = 0;  /* Initialize sum to 0 */
+	int sum = 0;
+	dlistint_t *i;
 
-	/* Traverse the list and sum the elements */
-	while (h != NULL)
+	for (i = head; i != NULL; i = i->next)
 	{
-		sum += h->n;  /* Add the data of the current node to the sum */
-		h = h->next;  /* Move to the next node */
+		sum += i->n;
 	}
 
-	return (sum);  /* Return the total sum */
+	return (sum);
 }
 
