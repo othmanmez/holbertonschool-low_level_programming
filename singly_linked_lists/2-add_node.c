@@ -2,20 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lists.h"
-/**
- * struct list_s - singly linked list
- * @str: string - (malloc'ed string)
- * @next: points to the next node
- *
- * Description: singly linked list node structure
- */
-struct list_s
-{
-	char *str;
-	struct list_s *next;
-};
-
-typedef struct list_s list_t;
 
 /**
  * add_node - adds a new node at the beginning of a list_t list
