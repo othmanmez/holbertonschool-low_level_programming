@@ -1,61 +1,46 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "lists.h"
-/*
- * add_node_end - Ajoute un nouveau noeud à la fin de la liste.
- * @head: Pointeur vers l'adresse du premier élément de la liste.
- * @str: Chaîne de caractères à ajouter dans le nouveau noeud.
+
+/**
+ * add_node_end - Adds a new node at the end of a list
+ *@head: pointer to the head of the list
+ *@str: string to be added to the list
  *
- * Description:
- * Cette fonction ajoute un nouveau noeud à la fin de la liste simplement
- * chaînée. Si la liste est vide, le nouveau noeud devient le premier
- * élément de la liste.
- *
- * Retour:
- * L'adresse du nouveau noeud si l'ajout réussit, sinon NULL si l'ajout
- * échoue (par exemple, en cas d'échec d'allocation mémoire).
+ *Return: NULL in case of failure
+ *or address or the element
  */
 
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node;
-	list_t *temp;
+	char *dup;
+	int len;
+	list_t *new, *last;
 
-	/* Allocation de mémoire pour le nouveau noeud */
-	new_node = malloc(sizeof(list_t));
-	if (new_node == NULL)
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
+		return (NULL);
+
+	dup = strdup(str);
+	if (str == NULL)
 	{
+		free(new);
 		return (NULL);
 	}
 
-	/* Duplication de la chaîne et affectation au nouveau noeud */
-	new_node->str = strdup(str);
-	if (new_node->str == NULL)
-	{
-		free(new_node);  /* Libération de la mémoire en cas d'échec de strdup */
-		return (NULL);
-	}
+	for (len = 0; str[len];)
+		len++;
 
-	/* Initialisation du pointeur next à NULL */
-	new_node->next = NULL;
+	new->str = dup;
+	new->len = len;
+	new->next = NULL;
 
-	/* Si la liste est vide, le nouveau noeud devient le premier élément */
 	if (*head == NULL)
-	{
-		*head = new_node;
-	}
+		*head = new;
 	else
 	{
-		/* Parcours de la liste pour trouver le dernier élément */
-		temp = *head;
-		while (temp->next != NULL)
-		{
-			temp = temp->next;
-		}
-		temp->next = new_node;  /* Ajout du nouveau noeud à la fin */
+		last = *head;
+		while (last->next != NULL)
+			last = last->next;
+		last->next = new;
 	}
-
-	return (new_node);  /* Retour de l'adresse du nouveau noeud */
+	return (*head);
 }
-
